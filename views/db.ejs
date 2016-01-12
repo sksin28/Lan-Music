@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+<!--
+    <script src="/player/build/jquery.js"></script>
+    <script src="/player/build/mediaelement-and-player.min.js"></script>
+    <link rel="stylesheet" href="/player/build/mediaelementplayer.min.css" />
+-->
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to <%= path %></p>
+
+<script type="text/javascript">
+    function play(loc){
+        var player = document.getElementById('player');
+        var mp3player = document.getElementById('mp3player');
+        mp3player.src = loc;
+        player.autoplay = "autoplay";
+//        player.setSrc(loc);
+        player.load();
+        player.play();
+//        return false;
+    }
+</script>
+
+<ul>
+    <% for (var i in songs){%>
+    <li> <a href="" onclick="play('<%=songs[i].path%>');return false;"> <%=songs[i].name%> </a> </li>
+    <%} %>
+</ul>
+<audio controls="controls" id="player">
+    <source src="" type="audio/mpeg" id="mp3player">
+</audio>
+</body>
+</html>
