@@ -1,0 +1,13 @@
+Database Structure
+
+Name
+Artist
+Album
+Genre
+Path
+Length
+Release_date
+Album_art
+Rating
+Views
+
