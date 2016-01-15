@@ -42,7 +42,18 @@
                 <li> <a href="" onclick="play('<%=songs[i].path%>'); return false;"> <%=songs[i].title%> </a> </li>
             </td>
             <td>
-                <%=songs[i].artist%>
+                <a href="/artist/<%=songs[i].artist%>"> <%=songs[i].artist%> </a>
+            </td>
+            <td>
+                <a href="" onclick="add_to_queue(<%=songs[i]%>);return false;">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+                <a href="">
+                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                </a>
+                <a href="">
+                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                </a>
             </td>
         </tr>
         <%} %>

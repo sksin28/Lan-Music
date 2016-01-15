@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Lan Music</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/index.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel='stylesheet' href='/stylesheets/artist.css' />
+    <!--
+            <script src="/player/build/jquery.js"></script>
+            <script src="/player/build/mediaelement-and-player.min.js"></script>
+            <link rel="stylesheet" href="/player/build/mediaelementplayer.min.css" />
+    -->
+</head>
+<body>
+<div class="well ">
+    <div class="heading">Lan Music</div>
+</div>
+
+<div id="search_bar">
+    Search Area
+</div>
+<div id="exTab1" class="container">
+
+    <div class="album_description">
+        <div class="album_image">
+            <img src="<%=songs[0].album_art%>">
+        </div>
+        <div class="album_name">
+            <%=artist%>
+        </div>
+    </div>
+
+    <ul  class="nav nav-pills">
+        <li class="active">
+            <a  href="#1a" data-toggle="tab">Songs</a>
+        </li>
+        <li>
+            <a href="#2a" data-toggle="tab">Albums</a>
+        </li>
+    </ul>
+
+    <div class="tab-content clearfix">
+        <div class="tab-pane active" id="1a">
+            <div class="main_content">
+                <table class="table">
+                    <% for (var i in songs){%>
+                    <tr>
+                        <td>
+                            <img src="<%=songs[i].album_art_small%>" alt="Image">
+                            </img>
+                        </td>
+                        <td>
+                            <li> <a href="" onclick="play('<%=songs[i].path%>'); return false;"> <%=songs[i].title%> </a> </li>
+                        </td>
+                        <td>
+                            <a href="/artist/<%=songs[i].artist%>"> <%=songs[i].artist%> </a>
+                        </td>
+                    </tr>
+                    <%} %>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane" id="2a">
+            <div class="main_content">
+                <table class="table">
+                    <% for (var i in albums){%>
+                    <tr>
+                        <td>
+                            <li> <a href="/album/<%=albums[i]%>"> <%console.log(i)%> <%=albums[i]%> </a> </li>
+                        </td>
+                    </tr>
+                    <%} %>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="player_container">
+    <div id="audio_player">
+        <audio controls="controls" id="player" >
+            <source src="" type="audio/mpeg" id="mp3player">
+        </audio>
+    </div>
+</div>
+</body>
+<script>
+//    location.reload();
+</script>
+</html>

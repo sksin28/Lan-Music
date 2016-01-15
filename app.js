@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var db = require('./routes/db').router;
 var album = require('./routes/album');
+var artist = require('./routes/artist');
 var app = express();
 
 // view engine setup
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
 
 app.use(new RegExp('^\/album\/.*$'), album);
+app.use(new RegExp('^\/artist\/.*$'), artist);
 app.use('/users', users);
 app.use('/db',db);
 app.use('/', routes);

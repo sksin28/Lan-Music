@@ -67,7 +67,3 @@ module.exports = {
     router,
     Song
 }
-/*
-
-module.exports = router;
-module.exports = Song;*/

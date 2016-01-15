@@ -32,14 +32,6 @@ else
 
 */
 var path,songs_all,albums,album_arts;
-/*
-db.find({"album":"2 States (2014)"}, function(err, songs) {
-    if (err) throw err;
-    songs_all = songs;
-    console.log(songs);
-});
-
-*/
 
 router.get('/', function(req, res, next) {
     var x =decodeURIComponent(req.originalUrl);
@@ -50,7 +42,7 @@ router.get('/', function(req, res, next) {
         songs_all = songs;
         console.log(songs);
     });
-    res.render('album', {album:x, title:"Title", songs: songs_all });
+    res.render('album', {artist:x,title:"Title", songs: songs_all });
 });
 
 module.exports = router;
