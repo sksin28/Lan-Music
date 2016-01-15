@@ -63,7 +63,18 @@ router.get('/', function(req, res, next) {
     res.render('db', {songs:songs_all, dirname:__dirname,albums:albums,album_arts:album_arts });
 });
 
+<<<<<<< HEAD
 module.exports = {
     router,
     Song
 }
+=======
+//module.exports = {
+    //router,
+    //Song
+//};
+
+
+module.exports = router;
+module.exports.Song = Song;
+>>>>>>> 800a2e50f344f799d158406700d657d5da4f87d7

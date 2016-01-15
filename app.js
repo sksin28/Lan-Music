@@ -7,9 +7,13 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var db = require('./routes/db').router;
+var db = require('./routes/db');
 var album = require('./routes/album');
+<<<<<<< HEAD
 var artist = require('./routes/artist');
+=======
+var search = require('./routes/search');
+>>>>>>> 800a2e50f344f799d158406700d657d5da4f87d7
 var app = express();
 
 // view engine setup
@@ -31,7 +35,7 @@ app.use(new RegExp('^\/artist\/.*$'), artist);
 app.use('/users', users);
 app.use('/db',db);
 app.use('/', routes);
-
+app.use('/search',search);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
