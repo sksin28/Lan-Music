@@ -63,11 +63,11 @@ router.get('/', function(req, res, next) {
     res.render('db', {songs:songs_all, dirname:__dirname,albums:albums,album_arts:album_arts });
 });
 
-module.exports = {
-    router,
-    Song
-}
-/*
+//module.exports = {
+    //router,
+    //Song
+//};
+
 
 module.exports = router;
-module.exports = Song;*/
+module.exports.Song = Song;
