@@ -9,14 +9,13 @@ function play(loc){
     return false;
 }
 
-$(document).ready(function(){
-    $('input.typeahead').typeahead({
-        name: 'typeahead',
-        remote: 'http://localhost:3000/search?key=%QUERY',
-        limit: 10,
-    });
-});
-
+//$(document).ready(function(){
+    //$('input.typeahead').typeahead({
+        //name: 'typeahead',
+        //remote: 'http://localhost:3000/search?key=%QUERY',
+        //limit: 10,
+    //});
+//});
 $(function () {
 
     $("#bar").autocomplete({
@@ -26,7 +25,7 @@ $(function () {
                 type: "GET",
                 data: request,  // request is the value of search input
                 success: function (data) {
-                    alert("HEYA");
+                    alert("HEYA"+data[0].title);
                     // Map response values to fiedl label and value
                     /*
                      response($.map(data, function (el) {
