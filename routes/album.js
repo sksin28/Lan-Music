@@ -36,11 +36,11 @@ var path,songs_all,albums,album_arts;
 router.get('/', function(req, res, next) {
     var x =decodeURIComponent(req.originalUrl);
     x= x.substr(7, x.length-7);
-    console.log(x);
+//    console.log(x);
     db.find({"album":x}, function(err, songs) {
         if (err) throw err;
         songs_all = songs;
-        console.log(songs);
+//        console.log(songs);
     });
     res.render('album', {artist:x,title:"Title", songs: songs_all });
 });

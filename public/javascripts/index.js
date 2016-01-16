@@ -8,14 +8,6 @@ function play(loc){
     player.play();
     return false;
 }
-
-//$(document).ready(function(){
-    //$('input.typeahead').typeahead({
-        //name: 'typeahead',
-        //remote: 'http://localhost:3000/search?key=%QUERY',
-        //limit: 10,
-    //});
-//});
 $(function () {
 
     $("#bar").autocomplete({
@@ -62,19 +54,27 @@ $(function () {
 
 });
 
+
 function add_to_queue(song) {
-    var current_queue;
-    alert("Hey");
-/*
-    if(localstorage.getItem("queue")===null)
-    {
-        current_queue = [];
+    var current_queue = [];
+    console.log(song.title);
+//    alert(song.title);
+    if (typeof localStorage === "undefined" || localStorage === null) {
+        var LocalStorage = require('node-localstorage').LocalStorage;
+        localStorage = new LocalStorage('./scratch');
+        alert('localised');
     }
-    else
-    {
-        current_queue = JSON.parse(localStorage["queue"]);
-    }
-    current_queue.push(song);
-    localStorage["queue"] = current_queue;
-*/
+     if(localStorage.getItem("queue")===null)
+        {
+            current_queue = [];
+            alert("labab");
+        }
+        else
+        {
+            alert("123");
+            current_queue.push(JSON.parse(localStorage["queue"]));
+        }
+    console.log(current_queue);
+    localStorage.setItem('queue', JSON.stringify(current_queue));
+    return false;
 }

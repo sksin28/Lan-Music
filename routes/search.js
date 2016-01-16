@@ -13,12 +13,15 @@ function buildResultSet(docs) {
 }
 
 router.get('/', function(req, res) {
-   var regex = new RegExp(req.query.key, 'i');
-   var query = db.Song.find({title: regex}); 
+//   var regex = new RegExp('^.*'+req.query.key+'.*$', 'i');
+    console.log(req.query['term']);
+    var x = req.query['term'];
+   var query = db.Song.find({title: {'$regex':x} });
 
    // Execute query in a callback and return users list
    query.exec(function(err, users) {
       if (!err) {
+          console.log(users);
          // Method to construct the json result set
          var result = buildResultSet(users); 
          res.send(result, {

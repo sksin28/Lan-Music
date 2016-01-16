@@ -6,13 +6,13 @@
     <title>Lan Music</title>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <script src="/javascripts/jquery.min.js"></script>
-    <script src="/javascripts/index.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
     <link rel='stylesheet' href='/stylesheets/album.css' />
     <script src="/javascripts/typeahead.min.js" type="text/javascript"></script>
+    <script src="/javascripts/index.js"></script>
     <!--
             <script src="/player/build/jquery.js"></script>
             <script src="/player/build/mediaelement-and-player.min.js"></script>
@@ -36,8 +36,12 @@
             <%=songs[0].album%>
         </div>
     </div>
-    <table class="table">
-        <% for (var i in songs){%>
+    <table class="table" id="table_songs">
+        <script>
+            window.array=[];
+            var j=0 ;
+        </script>
+        <%for (var i in songs){%>
         <tr>
             <td>
                 <li> <a href="" onclick="play('<%=songs[i].path%>'); return false;"> <%=songs[i].title%> </a> </li>
@@ -46,7 +50,31 @@
                 <a href="/artist/<%=songs[i].artist%>"> <%=songs[i].artist%> </a>
             </td>
             <td>
-                <a href="" onclick="add_to_queue(<%=songs[i]%>);return false;">
+                <script>
+                        array[j] = {
+                            "title" : "<%=songs[i].title%>",
+                            "artist" : "<%=songs[i].artist%>",
+                            "album" : "<%=songs[i].album%>",
+                            "album_art" : "<%=songs[i].album_art%>",
+                            "album_art_small" : "<%=songs[i].album_art_small%>",
+                            "views" : "<%=songs[i].views%>",
+                            "rating" : "<%=songs[i].rating%>",
+                            "genre" : "<%=songs[i].genre%>",
+                            "path" : "<%=songs[i].path%>"
+                        }
+//                        console.log(window.array[j]);
+                    function func(elem){
+                        console.log('yo'+array[j-1]+j);
+//                        elem.addEventListener('click',add_to_queue(array[j]));
+                        return false;
+                    }
+
+                        var rows = document.getElementById('table_songs').rows;
+                        rows[j].cells[2].innerHTML = "<a href='' onclick='add_to_queue(array["+j+"]);return false;'> <span class='glyphicon glyphicon-plus'></span> </a>"
+                        j += 1;
+                </script>
+<!--
+                <a href="" onclick="add_to_queue(array[]);return false;">
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
                 <a href="">
@@ -55,6 +83,7 @@
                 <a href="">
                     <span class="glyphicon glyphicon-thumbs-down"></span>
                 </a>
+-->
             </td>
         </tr>
         <%} %>
