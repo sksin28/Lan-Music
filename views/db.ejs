@@ -8,28 +8,26 @@
     <script src="/javascripts/jquery.min.js"></script>
     <script src="/javascripts/index.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/javascripts/jquery/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-
+    <link rel='stylesheet' href='/javascripts/jquery/jquery-ui.css' />
     <!--for handling ajax search-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="typeahead.min.js" type="text/javascript"></script>
-    <script>
-    $(document).ready(function(){
-    $('input.typeahead').typeahead({
-    name: 'typeahead',
-    remote: 'http://localhost:3000/search?key=%QUERY',
-    limit: 100
-    });
-    });
-</script>
+    <script src="/javascripts/typeahead.min.js" type="text/javascript"></script>
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
 <!--
         <script src="/player/build/jquery.js"></script>
         <script src="/player/build/mediaelement-and-player.min.js"></script>
         <link rel="stylesheet" href="/player/build/mediaelementplayer.min.css" />
 -->
+
+    <script>
+
+    </script>
 </head>
 <body>
 <div class="well ">
@@ -38,8 +36,13 @@
 
 <div id="search_bar">
 <input class="typeahead tt-query" spellcheck="false" autocomplete="off" name="typeahead" type="text" />
+    <input type="text" id="bar"/>
 </div>
-
+<!--
+<div id="search_result">
+    asdas
+</div>
+-->
 <div class="content row">
     <div class="top_songs col-xs-3">
         Top Songs

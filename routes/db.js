@@ -52,7 +52,7 @@ Song.collection.distinct("album_art", function(err, results){
 
 Song.collection.distinct("album", function(err, results){
     if (err) throw err;
-    console.log(results);
+//    console.log(results);
     albums = results;
 });
 
@@ -63,18 +63,5 @@ router.get('/', function(req, res, next) {
     res.render('db', {songs:songs_all, dirname:__dirname,albums:albums,album_arts:album_arts });
 });
 
-<<<<<<< HEAD
-module.exports = {
-    router,
-    Song
-}
-=======
-//module.exports = {
-    //router,
-    //Song
-//};
-
-
-module.exports = router;
+module.exports.Route = router;
 module.exports.Song = Song;
->>>>>>> 800a2e50f344f799d158406700d657d5da4f87d7
