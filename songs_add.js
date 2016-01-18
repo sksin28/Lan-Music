@@ -59,7 +59,7 @@ Sync(function(){
                 album_art:'/music/'+folder+'/Folder.jpg',
                 rating:0,
                 views:0
-            })
+            });
 //            console.log(newSong.path);
 
              newSong.save(function(err) {
